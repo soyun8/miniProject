@@ -9,15 +9,13 @@ const Layout = ({ title, buttons, children }) => {
       </header>
       <main className="layout-main">{children}</main>
       <footer className="layout-footer">
-        <div className="button-div">
-          {buttons.map((button) => {
-            return (
-              <button className="layout-button" key={buttons.title}>
-                {button.title}
-              </button>
-            );
-          })}
-        </div>
+        {buttons.map((button) => {
+          return (
+            <button className="layout-button" key={buttons.title}>
+              {button.title}
+            </button>
+          );
+        })}
       </footer>
     </Wrapper>
   );
@@ -40,13 +38,10 @@ const Wrapper = styled.div`
 
   .layout-footer {
     margin: 4rem 0;
+    display: flex;
+    justify-content: center;
   }
 
-  .button-div {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20rem;
-  }
   .layout-button {
     font-size: 2rem;
     background-color: red;
