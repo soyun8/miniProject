@@ -1,5 +1,5 @@
-function App() {
-  return <div>H!</div>;
-}
+const App = () => {
+  return <></>;
+};
 
 export default App;
