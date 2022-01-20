@@ -91,8 +91,13 @@ video {
 
 html {
   font-size: 62.5%;
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 /* HTML5 display-role reset for older browsers */
