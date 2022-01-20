@@ -4,7 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@ToString @Getter  @AllArgsConstructor
+@ToString
+@Getter
+@AllArgsConstructor
 @Table(name = "tbl_memo")
 @Entity
 @Builder
