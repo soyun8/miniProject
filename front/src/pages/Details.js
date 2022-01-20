@@ -2,19 +2,28 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
+  margin: 0 auto;
 `;
 
 const Title = styled.h1`
-  width: 80%;
+  width: 100%;
   margin: 10px auto;
   padding: 10px 0;
   text-align: center;
-  border: 1px solid #ccc;
+  font-size: 30px;
+  font-weight: 700;
+  ::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #5eaca0;
+    content: "";
+    margin: 10px auto 0 auto;
+  }
 `;
 
 const Content = styled.div`
-  border: 1px solid #ccc;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   height: 100px;
   padding: 10px;
