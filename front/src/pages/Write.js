@@ -6,17 +6,24 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   input {
     width: 100%;
     display: block;
+    margin: 0 auto;
     height: 30px;
     padding: 10px;
-    margin-bottom: 10px;
-    :last-child {
-      height: 100px;
-    }
+    border: 1px solid #ccc;
+  }
+`;
+
+const TitleInput = styled.div`
+  height: 50px;
+`;
+const ContentInput = styled.div`
+  input {
+    height: 150px;
   }
 `;
 
@@ -37,19 +44,22 @@ const Write = () => {
   return (
     <Wrapper>
       <Form onSubmit={onSubmit}>
-        <input
-          value={title}
-          onChange={titleOnChange}
-          type="text"
-          placeholder="글 제목"
-        />
-        <input
-          value={content}
-          onChange={contentOnChange}
-          type="text"
-          placeholder="글 내용"
-        />
-        <button></button>
+        <TitleInput>
+          <input
+            value={title}
+            onChange={titleOnChange}
+            type="text"
+            placeholder="글 제목"
+          />
+        </TitleInput>
+        <ContentInput>
+          <input
+            value={content}
+            onChange={contentOnChange}
+            type="text"
+            placeholder="글 내용"
+          />
+        </ContentInput>
       </Form>
     </Wrapper>
   );
