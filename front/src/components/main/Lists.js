@@ -44,6 +44,10 @@ const Wrapper = styled.ul`
     height: 100%;
     text-decoration: none;
     margin-top: 3rem;
+
+    :first-child {
+      margin-top: 0;
+    }
   }
 
   .board-list {

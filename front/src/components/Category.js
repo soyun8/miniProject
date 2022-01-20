@@ -7,21 +7,27 @@ const Category = ({ title }) => {
     <Wrapper>
       <div className="category-container">
         <span className="category-title">{title} 📝</span>
-        <div className="category-side">
-          <Link to="/write" className="category-link">
-            글쓰기
-          </Link>
-          <div className="category-sorting">
-            <label htmlFor="list-select" className="sorting-label">
-              Sorted By:
-            </label>
-            <select className="select-box" name="list-select" id="list-select">
-              <option value="asc">최신순</option>
-              <option value="des">오래된순</option>
-              <option value="view">조회순</option>
-            </select>
+        {title === "게시판" && (
+          <div className="category-side">
+            <Link to="/write" className="category-link">
+              글쓰기
+            </Link>
+            <div className="category-sorting">
+              <label htmlFor="list-select" className="sorting-label">
+                Sorted By:
+              </label>
+              <select
+                className="select-box"
+                name="list-select"
+                id="list-select"
+              >
+                <option value="asc">최신순</option>
+                <option value="des">오래된순</option>
+                <option value="view">조회순</option>
+              </select>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <hr className="underline" />
     </Wrapper>
@@ -29,6 +35,8 @@ const Category = ({ title }) => {
 };
 
 const Wrapper = styled.div`
+  margin-bottom: 2.5rem;
+
   .category-container {
     display: flex;
     justify-content: space-between;

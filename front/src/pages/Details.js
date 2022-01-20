@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Category from "../components/Category";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,6 +33,7 @@ const Content = styled.div`
 const Detail = () => {
   return (
     <Wrapper>
+      <Category title="상세 페이지" />
       <Title>글 제목</Title>
       <Content>
         임시 텍스트입니다. 임시 텍스트입니다. 임시 텍스트입니다. 임시

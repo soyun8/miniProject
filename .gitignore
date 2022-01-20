@@ -26,7 +26,6 @@ hs_err_pid*
 
 node_modules/
 .cache/
-public
 .env
 
 HELP.md
