@@ -6,7 +6,7 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  margin-top: 1.5rem;
+  height: 50px;
 `;
 
 export default Footer;
