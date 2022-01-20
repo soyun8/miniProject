@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Category from "../components/Category";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -36,6 +37,7 @@ const Write = () => {
   };
   return (
     <Wrapper>
+      <Category title="글 작성" />
       <Form onSubmit={onSubmit}>
         <input
           value={title}
