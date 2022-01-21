@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -9,11 +9,12 @@ import { getPosts } from "../utils/http-methods";
 
 const Main = () => {
   const getData = async () => {
-    const response = await axios.get("/board/list");
-    console.log(response);
+    const data = await getPosts();
+    console.log(data);
   };
 
   getData();
+
   return (
     <Wrapper>
       <Category title="게시판" />
