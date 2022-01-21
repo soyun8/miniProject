@@ -5,12 +5,11 @@ import axios from "axios";
 import Category from "../components/Category";
 import Lists from "../components/main/Lists";
 
+import { getPosts } from "../utils/http-methods";
+
 const Main = () => {
   const getData = async () => {
-    const response = await axios.get("/board/list", {
-      baseURL: "http://localhost:8082",
-      withCredentials: true,
-    });
+    const response = await axios.get("/board/list");
     console.log(response);
   };
 

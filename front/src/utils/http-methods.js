@@ -9,9 +9,7 @@ const deletePostPath = "/api/board/:id";
 // Error Handling Function: 반복되는 에러 핸들링 작업을 재사용 하기위해 함수로 작성하였습니다.
 const catchErrors = (callback) => {
   try {
-    const response = callback().then((result) => {
-      return result;
-    });
+    const response = callback();
     console.log(response);
   } catch (error) {
     if (error.response) {
