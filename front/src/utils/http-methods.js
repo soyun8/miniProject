@@ -7,10 +7,10 @@ const updatePostPath = "/api/board/:id";
 const deletePostPath = "/api/board/:id";
 
 // Error Handling Function: 반복되는 에러 핸들링 작업을 재사용 하기위해 함수로 작성하였습니다.
-const catchErrors = (callback) => {
+const catchErrors = async (callback, path, data) => {
   try {
-    const response = callback();
-    console.log(response);
+    const response = await callback(path, data);
+    return response;
   } catch (error) {
     if (error.response) {
       // 서버로부터 응답 O, BUT StatusCode가 2xx(성공) 범위를 벗어남
@@ -28,28 +28,20 @@ const catchErrors = (callback) => {
 };
 
 // HTTP Request Custom Functions: HTTP Request 메소드를 커스텀 함수로 작성하였습니다.
-const getPosts = () => {
-  return catchErrors(async () => {
-    return await axios.get(getPostsPath); // DB에 있는 모든 게시글 목록을 배열 형태로 반환합니다.
-  });
+const getPosts = async () => {
+  return await catchErrors(axios.get, getPostsPath);
 };
 
 const createPost = (userInputData) => {
-  return catchErrors(async () => {
-    await axios.post(createPostPath, userInputData); // 생성한 게시글을 객체 형태로 반환합니다.
-  });
+  return await catchErrors(axios.post, createPostPath, userInputData);
 };
 
 const updatePost = (userInputData) => {
-  return catchErrors(async () => {
-    await axios.put(updatePostPath, userInputData); // 수정한 게시글을 객체 형태로 반환합니다.
-  });
+  return await catchErrors(axios.put, updatePostPath, userInputData);
 };
 
 const deletePost = () => {
-  return catchErrors(async () => {
-    await axios.delete(deletePostPath); // 삭제한 게시글을 객체 형태로 반환합니다.
-  });
+  return await catchErrors(axios.delete, deletePostPath);
 };
 
 export { getPosts, createPost, updatePost, deletePost };
