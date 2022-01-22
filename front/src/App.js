@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Main from "./pages/Main";
-import Detail from "./pages/Details";
-import Write from "./pages/Write";
 import Layout from "./components/layout/Layout";
+import Main from "./pages/Main";
+import Detail from "./pages/Detail";
+import Write from "./pages/Write";
+import NotFound from "./pages/404";
 
 function App() {
   return (
@@ -13,11 +14,14 @@ function App() {
         <Route path="/" exact>
           <Main />
         </Route>
-        <Route path="/detail" exact>
-          <Detail />
-        </Route>
         <Route path="/write" exact>
           <Write />
+        </Route>
+        <Route path="/detail/:id">
+          <Detail />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </Layout>

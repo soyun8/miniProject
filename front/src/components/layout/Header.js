@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <Wrapper>
-      <span className="header-title">개발 커뮤니티 💻</span>
+      <Link to="/" className="header-title">
+        개발 커뮤니티 💻
+      </Link>
     </Wrapper>
   );
 };
