@@ -31,7 +31,7 @@ const ContentInput = styled.div`
   }
 `;
 
-const Write = () => {
+const Edit = () => {
   const [title, setTitle] = useState("");
   const [content, setCotent] = useState("");
 
@@ -59,7 +59,7 @@ const Write = () => {
   };
   return (
     <Wrapper>
-      <Category title="글 작성" />
+      <Category title="수정 페이지" />
       <Form onSubmit={onSubmit}>
         <TitleInput>
           <input
@@ -83,4 +83,4 @@ const Write = () => {
   );
 };
 
-export default Write;
+export default Edit;
