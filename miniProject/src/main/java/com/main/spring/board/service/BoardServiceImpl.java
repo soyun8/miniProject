@@ -34,9 +34,6 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public BoardEntity write(BoardDto boardto) {
-        // 각 클래스 프로퍼티들의 연관관계를 자동으로 판단하여 매핑
-        // 우리 프로젝트에는 엔티티와 dto가 같이 있으니까
-        // toEntity를 잘 봐라, 지워서 써라 (우리 @Builder 안씀)
         BoardEntity boardEntity = modelMapper.map(boardto, BoardEntity.class);
         // 레포지토리에서 쓰는 속성값들을 알아보자
         return boardRepository.save(boardEntity);
