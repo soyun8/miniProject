@@ -21,13 +21,13 @@ const sortPosts = (fetchedPosts, order) => {
     method = (a, b) => {
       const aDate = a.create_date;
       const bDate = b.create_date;
-      return ASC_SORT(aDate, bDate);
+      return DES_SORT(aDate, bDate);
     };
   } else if (order === postSortings[1].value) {
     method = (a, b) => {
       const aDate = a.create_date;
       const bDate = b.create_date;
-      return DES_SORT(aDate, bDate);
+      return ASC_SORT(aDate, bDate);
     };
   } else if (order === postSortings[2].value) {
     method = (a, b) => {
