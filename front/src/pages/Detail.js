@@ -64,19 +64,18 @@ const Detail = () => {
     deletePost(id, callback);
   };
 
+  console.log(post);
+
   return (
     <Wrapper>
       <Route path={`/detail/${id}/editing`} exact>
-        <Edit post={post} />
+        <Edit post={post} id={id} />
       </Route>
-      {isEditing !== "editing" && (
+      {isEditing !== "editing" && post !== null && (
         <div>
           <Category title="상세 페이지" />
-          <Title>임시 타이틀</Title>
-          <Content>
-            임시 텍스트입니다. 임시 텍스트입니다. 임시 텍스트입니다. 임시
-            텍스트입니다.
-          </Content>
+          <Title>{post.title}</Title>
+          <Content>{post.content}</Content>
           <Link to={`/detail/${id}/editing`}>수정</Link>
           <button onClick={onDeleteHandler}>삭제</button>
         </div>

@@ -7,26 +7,28 @@ import { getPosts } from "../../utils/http-methods";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   const callback = (fetchedPosts) => {
-  //     setPosts(fetchedPosts);
-  //   };
+  useEffect(() => {
+    const callback = (fetchedPosts) => {
+      setPosts(fetchedPosts);
+    };
 
-  //   getPosts(posts, callback);
-  // }, [posts]);
-  // console.log(posts);
+    getPosts(callback);
+  }, []);
+
+  console.log(posts);
 
   return (
     <Wrapper>
       {posts.length > 0 &&
         posts.map((post, index) => {
           return (
-            <Link to={`/detail/${post.id}`} className="link" key={post.id}>
+            <Link to={`/detail/${post.idx}`} className="link" key={post.idx}>
               <li className="board-list">
                 <span className="list-number">{index + 1}</span>
                 <div className="list-content">
                   <h2 className="list-title">{post.title}</h2>
-                  <span>작성일: </span>
+                  <span>작성일: {post.create_date}</span>
+                  {post.update_date && <span>수정일: {post.update_date}</span>}
                 </div>
               </li>
             </Link>
@@ -74,6 +76,8 @@ const Wrapper = styled.ul`
   }
 
   .list-content {
+    display: flex;
+    flex-direction: column;
     margin-left: 2rem;
   }
 

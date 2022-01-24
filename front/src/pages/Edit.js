@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import Category from "../components/Category";
-import { createPost } from "../utils/http-methods";
+import { createPost, updatePost } from "../utils/http-methods";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -31,11 +31,11 @@ const ContentInput = styled.div`
   }
 `;
 
-const Edit = () => {
+const Edit = ({ id }) => {
   const [title, setTitle] = useState("");
   const [content, setCotent] = useState("");
 
-  // let history = useHistory();
+  let history = useHistory();
 
   const titleOnChange = (event) => {
     setTitle(event.target.value);
@@ -46,36 +46,26 @@ const Edit = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    // const userInputData = {
-    //   title: title,
-    //   content: content,
-    // };
+    const userInputData = {
+      title: title,
+      content: content,
+    };
 
-    // const callback = () => {
-    //   history.push("/");
-    // };
+    const callback = () => {
+      history.push("/");
+    };
 
-    // createPost(userInputData, callback);
+    updatePost(userInputData, id, callback);
   };
   return (
     <Wrapper>
       <Category title="수정 페이지" />
       <Form onSubmit={onSubmit}>
         <TitleInput>
-          <input
-            value={title}
-            onChange={titleOnChange}
-            type="text"
-            placeholder="글 제목"
-          />
+          <input value={title} onChange={titleOnChange} type="text" />
         </TitleInput>
         <ContentInput>
-          <input
-            value={content}
-            onChange={contentOnChange}
-            type="text"
-            placeholder="글 내용"
-          />
+          <input value={content} onChange={contentOnChange} type="text" />
         </ContentInput>
         <button type="submit">글작성 완료</button>
       </Form>
