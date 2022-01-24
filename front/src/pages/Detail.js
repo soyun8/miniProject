@@ -47,15 +47,15 @@ const Detail = () => {
   const location = useLocation();
   const isEditing = location.pathname.split("/")[3];
 
-  // const history = useHistory();
+  const history = useHistory();
 
-  // useEffect(() => {
-  //   const callback = (fetchedPost) => {
-  //   setPost(fetchedPost);
-  // };
+  useEffect(() => {
+    const callback = (fetchedPost) => {
+      setPost(fetchedPost);
+    };
 
-  //   getSinglePost(id, callback);
-  // }, [])
+    getSinglePost(id, callback);
+  }, []);
 
   const onDeleteHandler = () => {
     const callback = () => {

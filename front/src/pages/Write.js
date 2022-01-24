@@ -35,7 +35,7 @@ const Write = () => {
   const [title, setTitle] = useState("");
   const [content, setCotent] = useState("");
 
-  // let history = useHistory();
+  let history = useHistory();
 
   const titleOnChange = (event) => {
     setTitle(event.target.value);
@@ -46,16 +46,16 @@ const Write = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    // const userInputData = {
-    //   title: title,
-    //   content: content,
-    // };
+    const userInputData = {
+      title: title,
+      content: content,
+    };
 
-    // const callback = () => {
-    //   history.push("/");
-    // };
+    const callback = () => {
+      history.push("/");
+    };
 
-    // createPost(userInputData, callback);
+    createPost(userInputData, callback);
   };
   return (
     <Wrapper>
