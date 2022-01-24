@@ -1,8 +1,10 @@
 package com.main.spring.board.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +13,7 @@ import java.time.LocalDateTime;
 @ToString
 public class BoardDto {
 
-    private int idx;
+    private Long idx;
     private int hit_cnt;
     private String title;
     private String content;
