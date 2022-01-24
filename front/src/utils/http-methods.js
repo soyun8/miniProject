@@ -10,17 +10,17 @@ const UPDATE_POST_PATH = "/board/"; // :id
 const DELETE_POST_PATH = "/board/"; // :id
 
 // HTTP Request Custom Functions: HTTP Request 메소드를 커스텀 함수로 작성하였습니다.
-const getPosts = async (callback) => {
+const getPosts = async (after) => {
   const response = await catchErrors(axios.get, GET_POSTS_PATH);
 
   // if (JSON.stringify(posts) === JSON.stringify(response.data)) {
   //   return;
   // }
 
-  callback(response.data);
+  after(response.data);
 };
 
-const getSinglePost = async (id, callback) => {
+const getSinglePost = async (id, after) => {
   const response = await catchErrors(
     axios.get,
     GET_SINGLE_POST_PATH + `${id}`,
@@ -29,29 +29,35 @@ const getSinglePost = async (id, callback) => {
     }
   );
 
-  callback(response.data);
+  after(response.data);
 };
 
-const createPost = async (userInputData, callback) => {
-  await catchErrors(axios.post, CREATE_POST_PATH, userInputData);
-  callback();
+const createPost = async (userInputData, after) => {
+  const response = await catchErrors(
+    axios.post,
+    CREATE_POST_PATH,
+    userInputData
+  );
+  const idx = response.data.idx;
+
+  after(idx);
 };
 
-const updatePost = async (userInputData, id, callback) => {
+const updatePost = async (userInputData, id, after) => {
   const response = await catchErrors(axios.put, UPDATE_POST_PATH + `${id}`, {
     idx: id,
     ...userInputData,
   });
 
-  callback();
+  after();
 };
 
-const deletePost = async (id, callback) => {
+const deletePost = async (id, after) => {
   await catchErrors(axios.delete, DELETE_POST_PATH + `${id}`, {
     idx: id,
   });
 
-  callback();
+  after();
 };
 
 export { getPosts, getSinglePost, createPost, updatePost, deletePost };
