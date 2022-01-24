@@ -19,5 +19,5 @@ public interface BoardService {
 
     Object Update(BoardDto boardto, Long idx);
 
-    void updateViw(Long idx);
+    int updateViw(Long idx);
 }

@@ -68,13 +68,13 @@ public class BoardServiceImpl implements BoardService {
      * 즉, 복잡한 조건문 없이도 널(null) 값으로 인해 발생하는 예외를 처리할 수 있게 됩니다.
      * */
     @Override
-    @Modifying
-    @Query("UPDATE board b SET b.hit_cnt = hit_cnt+1 WHERE b.idx=:idx")
-    public void updateViw(Long idx) {
+    public int updateViw(Long idx) {
         // 일단 목록을 조회해와서
         Optional<BoardEntity> entity = boardRepository.findById(idx);
         // hit_cnt만 꺼내와서 ++ 시켜야함
         //boardRepository.updateView(entity, idx);
+        BoardEntity boardEntity = modelMapper.map(entity, BoardEntity.class);
         log.info("dddd"+idx+"======결과값=====");
+        return boardRepository.updateView(idx);
     }
 }
