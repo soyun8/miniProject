@@ -31,9 +31,9 @@ const ContentInput = styled.div`
   }
 `;
 
-const Edit = ({ id }) => {
-  const [title, setTitle] = useState("");
-  const [content, setCotent] = useState("");
+const Edit = ({ post, id }) => {
+  const [title, setTitle] = useState(post.title);
+  const [content, setCotent] = useState(post.content);
 
   let history = useHistory();
 
