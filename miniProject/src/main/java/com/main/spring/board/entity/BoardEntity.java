@@ -1,11 +1,12 @@
 package com.main.spring.board.entity;
 
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -15,13 +16,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@DynamicInsert
+@DynamicUpdate
 @Table(name = "board")
 public class BoardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idx;
+    private Long idx;
 
     @Column
     private int hit_cnt;
