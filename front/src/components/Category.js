@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Category = ({ title }) => {
+import { postSortings } from "../utils/sort-posts";
+
+const Category = ({ title, changeOrder }) => {
+  const onChangeHandler = (event) => {
+    changeOrder(event.target.value);
+  };
+
   return (
     <Wrapper>
       <div className="category-container">
@@ -20,10 +26,15 @@ const Category = ({ title }) => {
                 className="select-box"
                 name="list-select"
                 id="list-select"
+                onChange={onChangeHandler}
               >
-                <option value="asc">최신순</option>
-                <option value="des">오래된순</option>
-                <option value="view">조회순</option>
+                {postSortings.map((sorting) => {
+                  return (
+                    <option key={sorting.value} value={sorting.value}>
+                      {sorting.name}
+                    </option>
+                  );
+                })}
               </select>
             </div>
           </div>
