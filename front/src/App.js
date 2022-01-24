@@ -17,7 +17,7 @@ function App() {
         <Route path="/write" exact>
           <Write />
         </Route>
-        <Route path="/detail/:id">
+        <Route path="/detail/:idx">
           <Detail />
         </Route>
         <Route path="*">

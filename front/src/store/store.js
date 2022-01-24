@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+// import { configureStore } from "@reduxjs/toolkit";
 
-import postSlice from "./post-slice";
+// import loadingSlice from "./loading-slice";
 
-const store = configureStore({
-  reducer: { post: postSlice.reducer },
-});
+// const store = configureStore({
+//   reducer: { loading: loadingSlice.reducer },
+// });
 
-export default store;
+// export default store;
