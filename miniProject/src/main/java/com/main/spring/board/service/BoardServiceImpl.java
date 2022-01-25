@@ -74,4 +74,9 @@ public class BoardServiceImpl implements BoardService {
         log.info("dddd"+idx+"======결과값=====");
         return boardRepository.updateView(idx);
     }
+
+    @Override
+    public Optional<BoardEntity> updateFindId(Long idx) {
+        return boardRepository.findById(idx);
+    }
 }

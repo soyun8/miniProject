@@ -67,7 +67,14 @@ public class BoardController {
     }
     
     // 게시판 수정하기
-    @PutMapping(value = "/udpate/{idx}")
+    @GetMapping("/update/{idx}")
+    public Optional<BoardEntity> udpate(@PathVariable Long idx) {
+        log.info("========= 수정하기 조회 =========");
+        return boardService.updateFindId(idx);
+    }
+
+    // 게시판 수정처리
+    @PutMapping(value = "/update/{idx}")
     public Object boardUpdate(@RequestBody BoardDto boardto, @PathVariable Long idx) {
         //GET 통신에서는 @RequestParam을 사용하지만, POST 통신에서는 @RequestBody를 사용한다.
         log.info("========= 수정하기 ======="+boardto+"====idx==="+idx);

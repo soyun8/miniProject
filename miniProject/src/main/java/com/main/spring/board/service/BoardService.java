@@ -20,4 +20,6 @@ public interface BoardService {
     Object Update(BoardDto boardto, Long idx);
 
     int updateViw(Long idx);
+
+    Optional<BoardEntity> updateFindId(Long idx);
 }
