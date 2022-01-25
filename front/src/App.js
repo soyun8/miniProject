@@ -6,6 +6,8 @@ import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 import Write from "./pages/Write";
 import NotFound from "./pages/404";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -13,6 +15,12 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Main />
+        </Route>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/register" exact>
+          <Register />
         </Route>
         <Route path="/write" exact>
           <Write />
