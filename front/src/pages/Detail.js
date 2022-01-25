@@ -83,10 +83,10 @@ const Wrapper = styled.div`
     border-radius: 0.7rem;
     margin-top: 3rem;
     cursor: pointer;
-  }
-
-  .home-button:hover {
-    background-color: #5eaca0;
+    transition: 0.3s;
+    :hover {
+      background-color: #5eaca0;
+    }
   }
 `;
 

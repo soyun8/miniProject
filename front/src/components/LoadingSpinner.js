@@ -6,7 +6,7 @@ import { Oval } from "react-loader-spinner";
 const LoadingSpinner = () => {
   return (
     <Wrapper>
-      <Oval color="#14946e" height={70} width={70} />;
+      <Oval color="#14946e" height={70} width={70} />
     </Wrapper>
   );
 };
