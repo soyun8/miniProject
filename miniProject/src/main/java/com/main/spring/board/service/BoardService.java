@@ -1,6 +1,7 @@
 package com.main.spring.board.service;
 
 import com.main.spring.board.dto.BoardDto;
+import com.main.spring.board.dto.BoardUpdateDTO;
 import com.main.spring.board.entity.BoardEntity;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,10 @@ public interface BoardService {
 
     void deleteById(Long idx);
 
-    Object Update(BoardDto boardto, Long idx);
 
     int updateViw(Long idx);
 
     Optional<BoardEntity> updateFindId(Long idx);
+
+    Optional<BoardEntity> Update(Long idx, BoardUpdateDTO boardUpdateDTO);
 }

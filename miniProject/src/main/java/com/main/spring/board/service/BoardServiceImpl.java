@@ -1,20 +1,17 @@
 package com.main.spring.board.service;
 
 import com.main.spring.board.dto.BoardDto;
+import com.main.spring.board.dto.BoardUpdateDTO;
 import com.main.spring.board.entity.BoardEntity;
 import com.main.spring.board.entity.BoardRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 @Service
 @Slf4j
@@ -25,6 +22,7 @@ public class BoardServiceImpl implements BoardService {
 
     ModelMapper modelMapper = new ModelMapper();
 
+    // 전체 목록 보기
     @Override
     public List<BoardDto> findAll() {
         List<BoardEntity> list = this.boardRepository.findAll();
@@ -32,6 +30,7 @@ public class BoardServiceImpl implements BoardService {
         return resultList;
     }
 
+    // 등록하기
     @Override
     public BoardEntity write(BoardDto boardto) {
         BoardEntity boardEntity = modelMapper.map(boardto, BoardEntity.class);
@@ -39,26 +38,30 @@ public class BoardServiceImpl implements BoardService {
         return boardRepository.save(boardEntity);
     }
 
+    // 상세보기
     @Override
     public Optional<BoardEntity> findById(Long idx) {
         return boardRepository.findById(idx);
     }
 
+    // 삭제하기
     @Override
     public void deleteById(Long idx) {
         boardRepository.deleteById(idx);
     }
 
+   /* // 수정하기
     @Override
     public BoardEntity Update(BoardDto boardto, Long idx) {
-        BoardEntity boardEntity = modelMapper.map(boardto, BoardEntity.class);
-       /* BoardEntity entity = new BoardEntity();
+        BoardEntity boardEntity = modelMapper.map(boardto.toEntity(), BoardEntity.class);
+        *//*BoardEntity entity = new BoardEntity();
         entity.setContent(boardto.getContent());
         entity.setTitle(boardto.getTitle());
-        entity.setIdx(idx);*/
+        entity.setIdx(idx);*//*
         return boardRepository.save(boardEntity);
-    }
+    }*/
 
+    // 상세보기시 조회 수 증가
     /**
      * Optional<T>
      * 이러한 Optional 객체를 사용하면 예상치 못한 NullPointerException 예외를 제공되는 메소드로 간단히 회피할 수 있습니다.
@@ -75,8 +78,26 @@ public class BoardServiceImpl implements BoardService {
         return boardRepository.updateView(idx);
     }
 
+    // 수정페이지. 값 매핑
     @Override
     public Optional<BoardEntity> updateFindId(Long idx) {
         return boardRepository.findById(idx);
+    }
+
+    // 수정하기
+    @Override
+    public Optional<BoardEntity> Update(Long idx, BoardUpdateDTO boardUpdateDTO) {
+        Optional<BoardEntity> entity = this.boardRepository.findById(idx);
+        entity.ifPresent(t ->{
+            if(boardUpdateDTO.getContent() != null) {
+                t.setContent(boardUpdateDTO.getContent());
+            }
+            if(boardUpdateDTO.getTitle() != null) {
+                t.setTitle(boardUpdateDTO.getTitle());
+            }
+            this.boardRepository.save(t);
+        });
+        log.info("=========t======"+entity);
+        return entity;
     }
 }

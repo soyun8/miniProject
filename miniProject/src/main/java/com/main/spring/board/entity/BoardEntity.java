@@ -2,6 +2,7 @@ package com.main.spring.board.entity;
 
 
 import com.sun.istack.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -35,9 +36,11 @@ public class BoardEntity {
 
     @Column
     @CreationTimestamp
+    @NotNull
     private LocalDateTime create_date;
 
     @Column
     @UpdateTimestamp
     private LocalDateTime update_date;
+
 }
