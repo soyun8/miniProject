@@ -8,6 +8,12 @@ const Header = () => {
       <Link to="/" className="header-title">
         개발 커뮤니티 💻
       </Link>
+      <Link to="/login" className="header-login">
+        로그인
+      </Link>
+      <Link to="/register" className="header-register">
+        회원가입
+      </Link>
     </Wrapper>
   );
 };
@@ -27,6 +33,18 @@ const Wrapper = styled.header`
     font-size: 3rem;
     font-weight: bold;
     margin-left: 6rem;
+    width: 80%;
+  }
+  .header-login {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .header-register {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 3rem;
   }
 `;
 
