@@ -1,6 +1,7 @@
 package com.main.spring.board.controller;
 
 import com.main.spring.board.dto.BoardDto;
+import com.main.spring.board.dto.BoardUpdateDTO;
 import com.main.spring.board.entity.BoardEntity;
 import com.main.spring.board.entity.BoardRepository;
 import com.main.spring.board.service.BoardService;
@@ -75,10 +76,12 @@ public class BoardController {
 
     // 게시판 수정처리
     @PutMapping(value = "/update/{idx}")
-    public Object boardUpdate(@RequestBody BoardDto boardto, @PathVariable Long idx) {
+    public ResponseEntity<BoardEntity> boardUpdate(@RequestBody BoardUpdateDTO boardUpdateDTO, @PathVariable Long idx) {
         //GET 통신에서는 @RequestParam을 사용하지만, POST 통신에서는 @RequestBody를 사용한다.
-        log.info("========= 수정하기 ======="+boardto+"====idx==="+idx);
+        // boardto = boardService.findById(idx);
+        log.info("========= 수정하기 ======="+boardUpdateDTO+"====idx==="+idx);
+        Optional<BoardEntity> boardto = this.boardService.Update(idx, boardUpdateDTO);
         //return null;
-        return this.boardService.Update(boardto,idx);
+        return ResponseEntity.badRequest().build();
     }
 }
