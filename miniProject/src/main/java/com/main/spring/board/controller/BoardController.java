@@ -82,6 +82,7 @@ public class BoardController {
         log.info("========= 수정하기 ======="+boardUpdateDTO+"====idx==="+idx);
         Optional<BoardEntity> boardto = this.boardService.Update(idx, boardUpdateDTO);
         //return null;
-        return ResponseEntity.badRequest().build();
+        return new ResponseEntity(boardto, HttpStatus.OK);
+        // return ResponseEntity.build();
     }
 }
