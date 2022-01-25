@@ -49,7 +49,7 @@ const Detail = () => {
   return (
     <Wrapper>
       {isEditing === "editing" && post !== null && (
-        <Edit post={post} id={idx} />
+        <Edit post={post} idx={idx} />
       )}
 
       {isEditing !== "editing" && post !== null && (
