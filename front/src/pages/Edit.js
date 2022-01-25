@@ -26,7 +26,7 @@ const Edit = ({ post, idx }) => {
     };
 
     const afterCallback = () => {
-      history.push(`/detail/${idx}`);
+      history.push(`/`);
     };
 
     updatePost(userInputData, idx, afterCallback);
