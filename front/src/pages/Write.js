@@ -75,11 +75,11 @@ const Wrapper = styled.div`
     border: 0;
     border-radius: 0.7rem;
     margin-top: 3rem;
+    transition: 0.3s;
     cursor: pointer;
-  }
-
-  .finish-button:hover {
-    background-color: #5eaca0;
+    :hover {
+      background-color: #5eaca0;
+    }
   }
 `;
 

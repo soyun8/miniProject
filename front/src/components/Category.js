@@ -91,10 +91,10 @@ const Wrapper = styled.div`
     color: #d31e1e;
     margin-right: 2.5rem;
     padding: 0.5rem;
-  }
-
-  .category-link:hover {
-    color: #5b44af;
+    transition: 0.3s;
+    :hover {
+      color: #5b44af;
+    }
   }
 
   .sorting-label {
@@ -102,6 +102,9 @@ const Wrapper = styled.div`
   }
   .select-box {
     height: 3rem;
+    :focus-visible {
+      outline: none;
+    }
   }
 
   .underline {
@@ -118,10 +121,10 @@ const Wrapper = styled.div`
     color: #d31e1e;
     cursor: pointer;
     padding: 0.5rem;
-  }
-
-  .delete-button:hover {
-    color: #5b44af;
+    transition: 0.3s;
+    :hover {
+      color: #5b44af;
+    }
   }
 `;
 
