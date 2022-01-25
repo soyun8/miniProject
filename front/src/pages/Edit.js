@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Category from "../components/Category";
 import { createPost, updatePost } from "../utils/http-methods";
 
-const Edit = ({ post, id }) => {
+const Edit = ({ post, idx }) => {
   const [title, setTitle] = useState(post.title);
   const [content, setCotent] = useState(post.content);
 
@@ -26,10 +26,10 @@ const Edit = ({ post, id }) => {
     };
 
     const afterCallback = () => {
-      history.push("/");
+      history.push(`/detail/${idx}`);
     };
 
-    updatePost(userInputData, id, afterCallback);
+    updatePost(userInputData, idx, afterCallback);
   };
   return (
     <Wrapper>

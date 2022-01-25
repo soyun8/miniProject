@@ -31,9 +31,15 @@ const Posts = ({ order }) => {
       {posts.map((post, index) => {
         const idx = post.idx;
         const title = post.title;
-        const createDate = post.create_date.split("T")[0];
-        const updateDate = post.update_date.split("T")[0];
-        const updateTime = post.update_date.split("T")[1].substring(0, 5);
+        const createDate = post.create_date
+          ? post.create_date.split("T")[0]
+          : "값 없음";
+        const updateDate = post.update_date
+          ? post.update_date.split("T")[0]
+          : "값 없음";
+        const updateTime = post.update_date
+          ? post.update_date.split("T")[1].substring(0, 5)
+          : "값 없음";
         const views = post.hit_cnt;
 
         return (
