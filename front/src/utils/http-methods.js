@@ -6,7 +6,7 @@ import catchErrors from "./http-catch-errors";
 const GET_POSTS_PATH = "/board/list";
 const CREATE_POST_PATH = "/board/write";
 const GET_SINGLE_POST_PATH = "/board/"; // :id
-const UPDATE_POST_PATH = "/board/"; // :id
+const UPDATE_POST_PATH = "/board/update/"; // :id
 const DELETE_POST_PATH = "/board/"; // :id
 
 // HTTP Request Custom Functions: HTTP Request 메소드를 커스텀 함수로 작성하였습니다.
