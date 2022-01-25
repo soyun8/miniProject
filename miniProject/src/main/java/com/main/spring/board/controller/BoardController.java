@@ -83,6 +83,6 @@ public class BoardController {
         Optional<BoardEntity> boardto = this.boardService.Update(idx, boardUpdateDTO);
         //return null;
         return new ResponseEntity(boardto, HttpStatus.OK);
-        // return ResponseEntity.build();
+        // return ResponseEntity.badRequest().build();
     }
 }
