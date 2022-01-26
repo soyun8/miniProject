@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
@@ -71,8 +72,17 @@ const Register = () => {
   } = useForm();
 
   const onValid = (data) => {
-    // 기본으로 data 가져오기
     console.log(data);
+    axios
+      .post("/signup", {
+        data,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -99,7 +109,7 @@ const Register = () => {
         </InputBox>
         <InputBox>
           <input
-            {...register("password", {
+            {...register("pwd", {
               required: "true",
               minLength: {
                 value: 6,
@@ -110,9 +120,9 @@ const Register = () => {
             placeholder="Password"
           />
           <div className="errorMessage">
-            {errors.password?.type === "required" &&
+            {errors.pwd?.type === "required" &&
               "비밀번호를 필수 조건으로 입력하시길 바랍니다."}
-            {errors.password?.type === "minLength" && errors.password.message}
+            {errors.pwd?.type === "minLength" && errors.pwd.message}
           </div>
         </InputBox>
         <InputBox>
