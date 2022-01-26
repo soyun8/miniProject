@@ -8,7 +8,7 @@ const Header = () => {
       <Link to="/" className="header-title">
         개발 커뮤니티 💻
       </Link>
-      <Link to="/login" className="header-login">
+      <Link to="/loginPage" className="header-login">
         로그인
       </Link>
       <Link to="/register" className="header-register">
