@@ -36,7 +36,7 @@
 
 ✔ API 설계
 
-![img.png](img.png)
+![img.png](readMe/img.png)
 
 ---
 
@@ -44,29 +44,29 @@ Backend Side
 
 ✔ 데이터베이스 설계
 
-![img_1.png](img_1.png)
+![img_1.png](readMe/img_1.png)
 
 ---
 
 1. 게시판 목록 보기
 
-![img_2.png](img_2.png)
+![img_2.png](readMe/img_2.png)
 
 
 2. 목록 정렬하기
 
-![img_3.png](img_3.png)
+![img_3.png](readMe/img_3.png)
 
 
 
 3. 상세 페이지 (상세페이지를 누를시 조회수가 증가합니다.)
 
-![img_4.png](img_4.png)
+![img_4.png](readMe/img_4.png)
 
 
 4. 수정 페이지
 
-![img_5.png](img_5.png)
+![img_5.png](readMe/img_5.png)
 
 5. 삭제
 
