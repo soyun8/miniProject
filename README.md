@@ -1,4 +1,4 @@
-# react_javaSpringBoot & React & JPA 로 게시판 구현하기
+# SpringBoot & React & JPA 로 게시판 구현하기
 
 프로젝트 기간 팀원 소개
 
