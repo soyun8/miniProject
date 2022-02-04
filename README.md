@@ -28,9 +28,12 @@
     • 데이터베이스 : MySQL 8.0.23, AWS RDS 사용
 
 프론트엔드 사용 기술
-```aidl
-무슨 무슨 기술
-```
+
+    • IDE : Visual Studio Code
+    • 기본 언어 : React
+    • CSS-in-JS : Styled-Component
+    • 패키지 매니저: NPM
+    • 버전 컨트롤 : Git, GitHub
 
 ---
 
